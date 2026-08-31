@@ -1,5 +1,5 @@
 import './styles.css';
-
+import { installJapaneseUi } from './ja';
 import { CalculatorPool } from './worker-client';
 import { mountCalculator } from './ui';
 import type { CharacterMeta, RuntimeManifest, SettingsCatalog } from './types';
@@ -30,6 +30,7 @@ async function start(): Promise<void> {
     client,
     storage: () => window.localStorage,
   });
+  installJapaneseUi(root);
   window.addEventListener('pagehide', cleanup, { once: true });
 }
 
